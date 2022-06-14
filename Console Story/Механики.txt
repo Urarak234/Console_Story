@@ -1,0 +1,187 @@
+Console.OutputEncoding = System.Text.Encoding.UTF8; // dlia russian lng
+
+Character urcharacter = new Character();
+int cls;
+Console.WriteLine("What is Your class");
+cls = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Start characteristics: HP = " + urcharacter.hp + " ATK = " + urcharacter.atk + " DEF = " + urcharacter.def);
+if (cls == 0)
+{
+    urcharacter.Dwarf();
+    Console.WriteLine("DWARF characteristics: HP = " + urcharacter.hp + " ATK = " + urcharacter.atk + " DEF = " + urcharacter.def);
+}
+else if (cls == 1)
+{
+    urcharacter.Human();
+    Console.WriteLine("HUMAN characteristics: HP = " + urcharacter.hp + " ATK = " + urcharacter.atk + " DEF = " + urcharacter.def);
+}else if (cls == 2)
+{
+    urcharacter.Elf();
+    Console.WriteLine("ELF characteristics: HP = " + urcharacter.hp + " ATK = " + urcharacter.atk + " DEF = " + urcharacter.def);
+}
+              :^:------------============Классовый выбор============------------------:^:
+}
+
+ForTestApps.Items_Classes original_char = new ForTestApps.Items_Classes();// пустышка, для восстановления параметров персонажа
+ForTestApps.Items_Classes urchar = new ForTestApps.Items_Classes(); // основа перса
+ForTestApps.Enemies enemy = new ForTestApps.Enemies(); // Враг
+ForTestApps.Items_Classes item = new ForTestApps.Items_Classes(); // Поднимаемый предмет
+ForTestApps.Items_Classes weapon_obj_old = new ForTestApps.Items_Classes(); // Пустышка для оружия
+ForTestApps.Items_Classes armour_obj_old = new ForTestApps.Items_Classes(); // Пустышка для брони
+
+Random damage = new Random(); \\ Объект, хранящий в себе показатели урона.
+
+original_char.Elf();
+urchar.Elf();
+item.Helmet();
+armour_obj_old.Helmet();
+enemy.Mata();
+
+Console.WriteLine("Вы нашли старый Чёрный Шлем. Подобрать его?\n \n"); \\ Подбор снаряжения
+Console.WriteLine("1). Да");
+Console.WriteLine("2). Нет");
+int ur_choice = Convert.ToInt32(Console.ReadKey(true).KeyChar); 
+if (ur_choice == 49)
+{
+    item.black_Helmet();
+    ItemPick();
+    Console.WriteLine("ГГ: - Да.");
+}
+else
+{
+    Console.WriteLine("ГГ: - Нет.");
+}
+
+//ItemPick();
+Console.WriteLine($"Your Character ATK: {urchar.atk} DEF: {urchar.def} HP: {urchar.hp} Wheapon Equiped: {urchar.weapon_equiped} Armour Equiped: {urchar.armour_equiped} ID: {urchar.id}");
+Console.WriteLine($"Old weapon ATK: {weapon_obj_old.atk} DEF: {weapon_obj_old.def} HP: {weapon_obj_old.hp} Equiped: {weapon_obj_old.weapon_equiped} ID: {weapon_obj_old.id}");
+Console.WriteLine($"Original weapon ATK: {item.atk} DEF: {item.def} HP: {item.hp} Equiped: {item.weapon_equiped} ID: {item.id}");
+
+void ItemPick() // Метод подбора преметов. (Единственное, что первые пустышки нужно указывать явно, но похуй, потом исправлю...)
+{
+    if (item.id == 0)
+    {
+        if (urchar.weapon_equiped == false)
+        {
+            urchar.atk += item.atk;
+            urchar.def += item.def;
+            urchar.hp += item.hp;
+            urchar.weapon_equiped = true;
+            item.Reset();
+        }
+        else if (urchar.weapon_equiped == true)
+        {
+            urchar.atk += item.atk - weapon_obj_old.atk;
+            urchar.def += item.def - weapon_obj_old.def;
+            urchar.hp += item.hp - weapon_obj_old.hp;
+            weapon_obj_old.atk = item.atk;
+            weapon_obj_old.def = item.def;
+            weapon_obj_old.hp = item.hp;
+            item.Reset();
+        }
+    }
+    else if (item.id == 1)
+    {
+        if (urchar.armour_equiped == false)
+        {
+            urchar.atk += item.atk;
+            urchar.def += item.def;
+            urchar.hp += item.hp;
+            urchar.armour_equiped = true;
+            item.Reset();
+        }
+        else if (urchar.armour_equiped == true)
+        {
+            urchar.atk += item.atk - armour_obj_old.atk;
+            urchar.def += item.def - armour_obj_old.def;
+            urchar.hp += item.hp - armour_obj_old.hp;
+            armour_obj_old.atk = item.atk;
+            armour_obj_old.def = item.def;
+            armour_obj_old.hp = item.hp;
+            item.Reset();
+        }
+    }
+}
+
+-------------------====================Объект с Классами и предметами===============------------------
+namespace ForTestApps
+{
+    public class Items_Classes
+    {
+        string name = "";
+        public int hp;
+        public int atk;
+        public int def;
+        public bool weapon_equiped = false;
+        public bool armour_equiped = false;
+        public int id; 
+        public void Dwarf()
+        {
+            hp = 10;
+            atk = 5;
+            def = 7;
+        }
+        public void Human()
+        {
+            hp = 8;
+            atk = 6;
+            def = 5;
+        }
+        public void Elf()
+        {
+            hp = 7;
+            atk = 9;
+            def = 4;
+        }
+
+        public void Sword()
+        {
+            atk = 2;
+            id = 0;
+        }
+        public void Axe()
+        {
+            atk = 4;
+            id = 0;
+        }
+        public void Helmet()
+        {
+            def = 3;
+            id = 1;
+        }
+
+        public void black_Helmet()
+        {
+            def = 5;
+            hp = 2;
+            atk = 1;
+            id = 1;
+        }
+
+        public void Reset()
+        {
+            atk = 0;
+            def = 0;
+            hp = 0;
+        }
+
+    }
+    
+}
+---------------===================Объект с врагами===============------------------
+namespace ForTestApps
+{
+    public class Enemies
+    {
+        public int hp;
+        public int atk;
+        public bool fight = false;
+        public void Mata()
+        {
+            hp = 20;
+            atk = 2;
+            fight = true;
+        }
+    }
+    
+}

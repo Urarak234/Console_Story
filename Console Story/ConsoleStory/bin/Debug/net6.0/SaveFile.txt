@@ -1,0 +1,8 @@
+﻿Urarak
+ДВОРФ
+6
+8
+11
+True
+True
+5

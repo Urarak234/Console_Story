@@ -1,0 +1,15 @@
+H:\10 Столпов\Console Story\ConsoleStory\bin\Debug\net6.0\ConsoleStory.exe
+H:\10 Столпов\Console Story\ConsoleStory\bin\Debug\net6.0\ConsoleStory.deps.json
+H:\10 Столпов\Console Story\ConsoleStory\bin\Debug\net6.0\ConsoleStory.runtimeconfig.json
+H:\10 Столпов\Console Story\ConsoleStory\bin\Debug\net6.0\ConsoleStory.dll
+H:\10 Столпов\Console Story\ConsoleStory\bin\Debug\net6.0\ConsoleStory.pdb
+H:\10 Столпов\Console Story\ConsoleStory\obj\Debug\net6.0\ConsoleStory.GeneratedMSBuildEditorConfig.editorconfig
+H:\10 Столпов\Console Story\ConsoleStory\obj\Debug\net6.0\ConsoleStory.AssemblyInfoInputs.cache
+H:\10 Столпов\Console Story\ConsoleStory\obj\Debug\net6.0\ConsoleStory.AssemblyInfo.cs
+H:\10 Столпов\Console Story\ConsoleStory\obj\Debug\net6.0\ConsoleStory.csproj.CoreCompileInputs.cache
+H:\10 Столпов\Console Story\ConsoleStory\obj\Debug\net6.0\ConsoleStory.dll
+H:\10 Столпов\Console Story\ConsoleStory\obj\Debug\net6.0\ref\ConsoleStory.dll
+H:\10 Столпов\Console Story\ConsoleStory\obj\Debug\net6.0\ConsoleStory.pdb
+H:\10 Столпов\Console Story\ConsoleStory\obj\Debug\net6.0\ConsoleStory.genruntimeconfig.cache
+H:\10 Столпов\Console Story\ConsoleStory\obj\Debug\net6.0\ConsoleStory.csproj.AssemblyReference.cache
+H:\10 Столпов\Console Story\ConsoleStory\obj\Debug\net6.0\refint\ConsoleStory.dll
